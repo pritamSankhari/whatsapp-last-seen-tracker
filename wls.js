@@ -14,7 +14,7 @@ let isOnline = function(){
 		}	
 		return false;
 	}
-	catch{
+	catch(e){
 		return false;
 	}			
 	
