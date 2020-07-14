@@ -8,7 +8,7 @@
 let isOnline = function(){
 
 	try{
-		let lastSeenData = $('._3sgkv span').textContent
+		let lastSeenData = $("._3-cMa._3Whw5").textContent
 		if(lastSeenData=='online'){
 			return true;
 		}	
