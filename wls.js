@@ -2,19 +2,25 @@
 // INJECT THESE LINES OF CODE INTO CONSOLE
 // ONLINE OR LAST SEEN TRACK SECTION
 
-// let lastSeenData = document.querySelector('._3sgkv span') 
+let lastSeenData;
+//document.getElementById
 
 
 let isOnline = function(){
-
+	
+	
 	try{
-		let lastSeenData = $("._3-cMa._3Whw5").textContent
-		if(lastSeenData=='online'){
+		lastSeenData = document.querySelector("._3-cMa._3Whw5").textContent
+		
+		//console.log(lastSeenData)
+		
+		if(lastSeenData=="online"){
 			return true;
 		}	
 		return false;
 	}
 	catch(e){
+		console.log(e.message)
 		return false;
 	}			
 	
@@ -47,10 +53,12 @@ let checkLastSeen = function(){
 
 	let status = isOnline()
 	
-	onlineBool.push(isOnline())
+	onlineBool.push(status)
 	let lastOnlineBoolIndex = onlineBool.length-1
 
 	let t = new Date() 
+	
+	//console.log(onlineBool[lastOnlineBoolIndex-1])
 
 	if(status){
 		
