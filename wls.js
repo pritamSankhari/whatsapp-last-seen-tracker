@@ -10,7 +10,7 @@ let isOnline = function(){
 	
 	
 	try{
-		lastSeenData = document.querySelector("._3-cMa._3Whw5").textContent
+		lastSeenData = document.querySelector("._3Id9P._1VzZY").textContent
 		
 		//console.log(lastSeenData)
 		
@@ -38,7 +38,7 @@ let onlineBool=[];
 let showOnlineTrace = function(){
 	let data="";
 	for(let i=0;i<onlineTrace.length;i++){
-		let s='From '+onlineTrace[i][0]+' To '+onlineTrace[i][1]
+		let s='[From '+onlineTrace[i][0]+' To '+onlineTrace[i][1] +']'
 		
 		data+=s+'\n';
 
