@@ -85,4 +85,4 @@ let checkLastSeen = function(){
 	timeout = setTimeout(checkLastSeen,1000)
 }
 
-checkLastSeen(e);
+checkLastSeen();
