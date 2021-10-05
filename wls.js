@@ -6,11 +6,11 @@ let lastSeenData;
 //document.getElementById
 
 
-let isOnline = function(className){
+let isOnline = function(){
 	
 	
 	try{
-		lastSeenData = document.querySelector('"' + className + '"').textContent
+		lastSeenData = document.querySelector("._2YPr_ .i0jNr").textContent
 		
 		//console.log(lastSeenData)
 		
@@ -49,9 +49,9 @@ let showOnlineTrace = function(){
 }
 
 
-let checkLastSeen = function(className){
+let checkLastSeen = function(){
 
-	let status = isOnline(className)
+	let status = isOnline()
 	
 	onlineBool.push(status)
 	let lastOnlineBoolIndex = onlineBool.length-1
@@ -85,6 +85,4 @@ let checkLastSeen = function(className){
 	timeout = setTimeout(checkLastSeen,1000)
 }
 
-
-//let className = "";
-//checkLastSeen(className);
+checkLastSeen(e);
