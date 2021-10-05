@@ -6,83 +6,87 @@ let lastSeenData;
 //document.getElementById
 
 
-let isOnline = function(){
-	
-	
-	try{
-		lastSeenData = document.querySelector("._2YPr_.i0jNr").textContent
-		
-		//console.log(lastSeenData)
-		
-		if(lastSeenData=="online"){
-			return true;
-		}	
-		return false;
-	}
-	catch(e){
-		//console.log(e.message)
-		return false;
-	}			
-	
+let isOnline = function(className) {
+
+
+    try {
+        lastSeenData = document.querySelector(className).textContent
+
+        //console.log(lastSeenData)
+
+        if (lastSeenData == "online") {
+            return true;
+        }
+        return false;
+    } catch (e) {
+        //console.log(e.message)
+        return false;
+    }
+
 }
 
 let timeout;
-let onlineTrace=[];
-let timeInTimeOut=[];
+let onlineTrace = [];
+let timeInTimeOut = [];
 
 
 
 
-let onlineBool=[];
+let onlineBool = [];
 
-let showOnlineTrace = function(){
-	let data="";
-	for(let i=0;i<onlineTrace.length;i++){
-		let s='[From '+onlineTrace[i][0]+' To '+onlineTrace[i][1] +']'
-		
-		data+=s+'\n';
+let showOnlineTrace = function() {
+    let data = "";
+    for (let i = 0; i < onlineTrace.length; i++) {
+        let s = '[From ' + onlineTrace[i][0] + ' To ' + onlineTrace[i][1] + ']'
 
-	}
-	// return data;
-	console.log(data);
+        data += s + '\n';
+
+    }
+    // return data;
+    console.log(data);
 
 }
 
 
-let checkLastSeen = function(){
+let checkLastSeen = function(className) {
 
-	let status = isOnline()
-	
-	onlineBool.push(status)
-	let lastOnlineBoolIndex = onlineBool.length-1
+    let status = isOnline(className)
 
-	let t = new Date() 
-	
-	//console.log(onlineBool[lastOnlineBoolIndex-1])
+    onlineBool.push(status)
+    let lastOnlineBoolIndex = onlineBool.length - 1
 
-	if(status){
-		
+    let t = new Date()
 
-		time = t.getDate()+'-'+(t.getMonth()+1)+'-'+t.getFullYear()+' '+t.getHours()+':'+t.getMinutes()+':'+t.getSeconds()
+    //console.log(onlineBool[lastOnlineBoolIndex-1])
 
-		if(lastOnlineBoolIndex==0){
-			timeInTimeOut.push(time)
-		}
+    if (status) {
 
-		else if(onlineBool[lastOnlineBoolIndex-1]==false){
-			timeInTimeOut.push(time)
-		}
 
-	}
-	else{
-		if(onlineBool[lastOnlineBoolIndex-1]==true){
-			timeInTimeOut.push(time)	
-			onlineTrace.push(timeInTimeOut)
-			timeInTimeOut=[]
-		}		
-	} 
+        time = t.getDate() + '-' + (t.getMonth() + 1) + '-' + t.getFullYear() + ' ' + t.getHours() + ':' + t.getMinutes() + ':' + t.getSeconds()
 
-	timeout = setTimeout(checkLastSeen,1000)
+        if (lastOnlineBoolIndex == 0) {
+            timeInTimeOut.push(time)
+        } else if (onlineBool[lastOnlineBoolIndex - 1] == false) {
+            timeInTimeOut.push(time)
+        }
+
+    } else {
+        if (onlineBool[lastOnlineBoolIndex - 1] == true) {
+            timeInTimeOut.push(time)
+            onlineTrace.push(timeInTimeOut)
+            timeInTimeOut = []
+        }
+    }
+
 }
 
-checkLastSeen();
+let listen = function(className) {
+
+    while (true) {
+
+        checkLastSeen(className);
+        setTimeout(function() {}, 1000);
+    }
+}
+
+listen(className);
