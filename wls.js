@@ -86,5 +86,5 @@ let checkLastSeen = function(className){
 }
 
 
-
-checkLastSeen();
+let className = "";
+checkLastSeen(className);
