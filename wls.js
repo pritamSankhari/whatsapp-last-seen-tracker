@@ -6,7 +6,7 @@ let lastSeenData;
 //document.getElementById
 
 
-let isOnline = function(){
+let isOnline = function(className){
 	
 	
 	try{
