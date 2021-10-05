@@ -82,11 +82,8 @@ let checkLastSeen = function(className) {
 
 let listen = function(className) {
 
-    while (true) {
-
-        checkLastSeen(className);
-        setTimeout(function() {}, 1000);
-    }
+    checkLastSeen(className);
+    setTimeout(listen, 1000,className);
 }
 
 listen(className);
