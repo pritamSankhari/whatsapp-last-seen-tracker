@@ -10,7 +10,7 @@ let isOnline = function(){
 	
 	
 	try{
-		lastSeenData = document.querySelector("._2YPr_.i0jNr").textContent
+		lastSeenData = document.querySelector(className).textContent
 		
 		//console.log(lastSeenData)
 		
@@ -49,9 +49,9 @@ let showOnlineTrace = function(){
 }
 
 
-let checkLastSeen = function(){
+let checkLastSeen = function(className){
 
-	let status = isOnline()
+	let status = isOnline(className)
 	
 	onlineBool.push(status)
 	let lastOnlineBoolIndex = onlineBool.length-1
