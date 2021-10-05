@@ -10,7 +10,7 @@ let isOnline = function(){
 	
 	
 	try{
-		lastSeenData = document.querySelector("._2YPr_ .i0jNr").textContent
+		lastSeenData = document.querySelector("._2YPr_.i0jNr").textContent
 		
 		//console.log(lastSeenData)
 		
